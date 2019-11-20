@@ -15,5 +15,5 @@ async.onreadystatechange = function(){
     document.getElementById("Menu").innerHTML = mostrarData;
 }
 
-async.open("GET", "menu.json", true);
+async.open("GET", "./menu.json", true);
 async.send();
