@@ -189,11 +189,33 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"menu.js":[function(require,module,exports) {
+var async = new XMLHttpRequest();
+
+async.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var data = JSON.parse(this.responseText);
+    var i, j;
+    var mostrarData = "";
+
+    for (i in data.menu) {
+      mostrarData += "<li><a href" + '"' + data.menu[i].Carpeta + "\//" + data.menu[i].Archivo + '"' + ">";
+      mostrarData += data.menu[i].Name + "</a></li>";
+    }
+  }
+
+  document.getElementById("Menu").innerHTML = mostrarData;
+};
+
+async.open("GET", "menu.json", true);
+async.send();
+},{}],"../index.js":[function(require,module,exports) {
 "use strict";
 
 require("./src/style.scss");
-},{"./src/style.scss":"style.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+require("./src/menu.js");
+},{"./src/style.scss":"style.scss","./src/menu.js":"menu.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
