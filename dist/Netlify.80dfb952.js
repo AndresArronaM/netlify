@@ -198,11 +198,12 @@ var _data = _interopRequireDefault(require("./data.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var menu = '{"menu":[{"Name":"Documentacion","Carpeta":"Doc","Archivo":"Documentation.html"},{"Name":"Colores","Carpeta":"Colors","Archivo":"Colors.html"},{"Name":"CLI","Carpeta":"Cli","Archivo":"Cli.html"},{"Name":"Cambios","Carpeta":"Changelog","Archivo":"Changelog.html"},{"Name":"UX","Carpeta":"UX","Archivo":"Style_Guide.html"},{"Name":"Blog","Carpeta":"Blog","Archivo":"Blog.html"}]}'; //console.log(data);
-
+//let menu = '{"menu":[{"Name":"Documentacion","Carpeta":"Doc","Archivo":"Documentation.html"},{"Name":"Colores","Carpeta":"Colors","Archivo":"Colors.html"},{"Name":"CLI","Carpeta":"Cli","Archivo":"Cli.html"},{"Name":"Cambios","Carpeta":"Changelog","Archivo":"Changelog.html"},{"Name":"UX","Carpeta":"UX","Archivo":"Style_Guide.html"},{"Name":"Blog","Carpeta":"Blog","Archivo":"Blog.html"}]}'
+//console.log(data);
+var menu = '{"Index":[{"Name":"Documentacion"}], "Colores":[{"Name":"Colores"}]}';
 var JSONtoData = JSON.parse(menu);
 var datos = JSON.stringify(JSONtoData);
-document.getElementById('Menu').innerHTML = datos.menu;
+document.getElementById('Menu').innerHTML = JSONtoData.Colores[0].Name;
 console.log(datos);
 /*let async = new XMLHttpRequest();
 
