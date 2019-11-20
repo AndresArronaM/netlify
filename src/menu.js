@@ -1,4 +1,4 @@
-import data from './src/menu.json';
+import data from './menu.json';
 let async = new XMLHttpRequest();
 
 async.onreadystatechange = function(){

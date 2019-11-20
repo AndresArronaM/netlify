@@ -218,17 +218,24 @@ module.exports = {
   }]
 };
 },{}],"menu.js":[function(require,module,exports) {
+"use strict";
+
+var _menu = _interopRequireDefault(require("./menu.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var async = new XMLHttpRequest();
 
 async.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
-    var data = JSON.parse(this.responseText);
+    var _data = JSON.parse(this.responseText);
+
     var i, j;
     var mostrarData = "";
 
-    for (i in data.menu) {
-      mostrarData += "<li><a href" + '"' + data.menu[i].Carpeta + "\//" + data.menu[i].Archivo + '"' + ">";
-      mostrarData += data.menu[i].Name + "</a></li>";
+    for (i in _data.menu) {
+      mostrarData += "<li><a href" + '"' + _data.menu[i].Carpeta + "\//" + _data.menu[i].Archivo + '"' + ">";
+      mostrarData += _data.menu[i].Name + "</a></li>";
     }
   }
 
@@ -237,7 +244,7 @@ async.onreadystatechange = function () {
 
 async.open("GET", "./menu.json", true);
 async.send();
-},{}],"../index.js":[function(require,module,exports) {
+},{"./menu.json":"menu.json"}],"../index.js":[function(require,module,exports) {
 "use strict";
 
 require("./src/style.scss");
