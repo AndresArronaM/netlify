@@ -1,5 +1,5 @@
 import './src/style.scss';
-import data from './src/menu.json';
+import data from './src/data.js';
 import './src/menu.js';
 
-console.log(data.menu[0]);
+//console.log(data.menu[0]);

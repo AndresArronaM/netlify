@@ -1,5 +1,13 @@
-import data from './menu.json';
-let async = new XMLHttpRequest();
+import data from './data.js';
+let menu = '{"menu":[{"Name":"Documentacion","Carpeta":"Doc","Archivo":"Documentation.html"},{"Name":"Colores","Carpeta":"Colors","Archivo":"Colors.html"},{"Name":"CLI","Carpeta":"Cli","Archivo":"Cli.html"},{"Name":"Cambios","Carpeta":"Changelog","Archivo":"Changelog.html"},{"Name":"UX","Carpeta":"UX","Archivo":"Style_Guide.html"},{"Name":"Blog","Carpeta":"Blog","Archivo":"Blog.html"}]}'
+//console.log(data);
+
+let JSONtoData = JSON.parse(menu)
+let datos = JSON.stringify(JSONtoData);
+document.getElementById('Menu').innerHTML = datos.menu;
+console.log(datos);
+
+/*let async = new XMLHttpRequest();
 
 async.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
@@ -17,4 +25,4 @@ async.onreadystatechange = function(){
 }
 
 async.open("GET", "./menu.json", true);
-async.send();
+async.send();*/

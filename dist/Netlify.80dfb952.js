@@ -189,74 +189,51 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"menu.json":[function(require,module,exports) {
-module.exports = {
-  "menu": [{
-    "Name": "Documentacion",
-    "Carpeta": "Doc",
-    "Archivo": "Documentation.html"
-  }, {
-    "Name": "Colores",
-    "Carpeta": "Colors",
-    "Archivo": "Colors.html"
-  }, {
-    "Name": "CLI",
-    "Carpeta": "Cli",
-    "Archivo": "Cli.html"
-  }, {
-    "Name": "Cambios",
-    "Carpeta": "Changelog",
-    "Archivo": "Changelog.html"
-  }, {
-    "Name": "UX",
-    "Carpeta": "UX",
-    "Archivo": "Style_Guide.html"
-  }, {
-    "Name": "Blog",
-    "Carpeta": "Blog",
-    "Archivo": "Blog.html"
-  }]
-};
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"data.js":[function(require,module,exports) {
+var menu = '{"menu":[{"Name":"Documentacion","Carpeta":"Doc","Archivo":"Documentation.html"},{"Name":"Colores","Carpeta":"Colors","Archivo":"Colors.html"},{"Name":"CLI","Carpeta":"Cli","Archivo":"Cli.html"},{"Name":"Cambios","Carpeta":"Changelog","Archivo":"Changelog.html"},{"Name":"UX","Carpeta":"UX","Archivo":"Style_Guide.html"},{"Name":"Blog","Carpeta":"Blog","Archivo":"Blog.html"}]}';
 },{}],"menu.js":[function(require,module,exports) {
 "use strict";
 
-var _menu = _interopRequireDefault(require("./menu.json"));
+var _data = _interopRequireDefault(require("./data.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var async = new XMLHttpRequest();
+var menu = '{"menu":[{"Name":"Documentacion","Carpeta":"Doc","Archivo":"Documentation.html"},{"Name":"Colores","Carpeta":"Colors","Archivo":"Colors.html"},{"Name":"CLI","Carpeta":"Cli","Archivo":"Cli.html"},{"Name":"Cambios","Carpeta":"Changelog","Archivo":"Changelog.html"},{"Name":"UX","Carpeta":"UX","Archivo":"Style_Guide.html"},{"Name":"Blog","Carpeta":"Blog","Archivo":"Blog.html"}]}'; //console.log(data);
 
-async.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    var _data = JSON.parse(this.responseText);
+var JSONtoData = JSON.parse(menu);
+var datos = JSON.stringify(JSONtoData);
+document.getElementById('Menu').innerHTML = datos.menu;
+console.log(datos);
+/*let async = new XMLHttpRequest();
 
-    var i, j;
-    var mostrarData = "";
+async.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        let data = JSON.parse(this.responseText);
+        let i, j;
+        var mostrarData = "";
 
-    for (i in _data.menu) {
-      mostrarData += "<li><a href" + '"' + _data.menu[i].Carpeta + "\//" + _data.menu[i].Archivo + '"' + ">";
-      mostrarData += _data.menu[i].Name + "</a></li>";
+        for(i in data.menu){
+            mostrarData += "<li><a href"+'"'+data.menu[i].Carpeta+"\//"+data.menu[i].Archivo+'"'+">";
+            mostrarData += data.menu[i].Name +"</a></li>";
+        }
     }
-  }
 
-  document.getElementById("Menu").innerHTML = mostrarData;
-};
+    document.getElementById("Menu").innerHTML = mostrarData;
+}
 
 async.open("GET", "./menu.json", true);
-async.send();
-},{"./menu.json":"menu.json"}],"../index.js":[function(require,module,exports) {
+async.send();*/
+},{"./data.js":"data.js"}],"../index.js":[function(require,module,exports) {
 "use strict";
 
 require("./src/style.scss");
 
-var _menu = _interopRequireDefault(require("./src/menu.json"));
+var _data = _interopRequireDefault(require("./src/data.js"));
 
 require("./src/menu.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-console.log(_menu.default.menu[0]);
-},{"./src/style.scss":"style.scss","./src/menu.json":"menu.json","./src/menu.js":"menu.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./src/style.scss":"style.scss","./src/data.js":"data.js","./src/menu.js":"menu.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
