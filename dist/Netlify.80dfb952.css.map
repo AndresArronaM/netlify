@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA;EAEI,kBADK","file":"Netlify.80dfb952.css","sourceRoot":"..\\src","sourcesContent":["body{\r\n    $red:red;\r\n    background-color:$red;\r\n}"]}
